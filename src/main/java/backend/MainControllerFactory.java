@@ -1,0 +1,42 @@
+package backend;
+
+import dom2app.SimpleTableModel;
+
+public class MainControllerFactory implements IMainController {
+
+	public IMainController createMainController() {
+		return new MainControllerFactory();
+		
+	}
+
+	@Override
+	public SimpleTableModel load(String fileName, String delimiter) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SimpleTableModel getTasksByPrefix(String prefix) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SimpleTableModel getTaskById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SimpleTableModel getTopLevelTasks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int createReport(String path, ReportType type) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

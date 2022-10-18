@@ -1,6 +1,7 @@
 package backend;
 
 import dom2app.SimpleTableModel;
+import fileopen.FileOpen;
 
 public class MainControllerFactory implements IMainController {
 
@@ -12,6 +13,8 @@ public class MainControllerFactory implements IMainController {
 	@Override
 	public SimpleTableModel load(String fileName, String delimiter) {
 		// TODO Auto-generated method stub
+		FileOpen test = new FileOpen(delimiter,fileName);
+		System.out.println(test);
 		return null;
 	}
 
@@ -23,7 +26,7 @@ public class MainControllerFactory implements IMainController {
 
 	@Override
 	public SimpleTableModel getTaskById(int id) {
-		// TODO Auto-generated method stub
+		6
 		return null;
 	}
 

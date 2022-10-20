@@ -49,4 +49,14 @@ public class Task {
 	public int getCost() {
 		return cost;
 	}
+	
+	public String toString(int p) {
+		return ""+p;
+		
+	}
+	
+	public String[] tablestr() {
+		String[] tsk = {toString(taskId),name,toString(mamaId),toString(start),toString(end),toString(cost)};
+		return tsk;
+	}
 }

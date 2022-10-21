@@ -40,7 +40,8 @@ public class FileOpen {
 		inputReader.close();
 		return task;	
 	}
-	public ArrayList<String[]> toString(ArrayList<Task> arl){
+	public ArrayList<String[]> 	toString(ArrayList<Task> arl){
+		
 		ArrayList<String[]> indexes = new ArrayList<String[]>();
 		for(int i=0; i<arl.size(); i++) {
 			indexes.add(arl.get(i).tablestr());

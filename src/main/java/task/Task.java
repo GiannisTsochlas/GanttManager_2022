@@ -34,6 +34,15 @@ public class Task {
 		return name;
 	}
 	
+	//gia thn gettasksbyprefix
+	public String getFirstWord() {
+
+        int i = name.indexOf(' ');
+        String firstword = name.substring(0, i);
+        
+		return firstword;
+	}
+	
 	public int getMamaId() {
 		return mamaId;
 	}

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dom2app.SimpleTableModel;
 import fileopen.FileOpen;
 import task.Task;
+import tasksbyid.TaskById;
 import tasksbyprefix.TasksByPrefix;
 
 public class MainControllerFactory implements IMainController {
@@ -14,8 +15,8 @@ public class MainControllerFactory implements IMainController {
     private String[] pColumnNames ={"TaskId" , "TaskText", "MamaId","Start" , "End" , "Cost" };
 
     
-    ArrayList<Task> testtoprint = new ArrayList<Task>();
-    ArrayList<Task> temporary2 = new ArrayList<Task>();
+    ArrayList<Task> loadedfile = new ArrayList<Task>();
+    ArrayList<Task> temporary1,temporary2 = new ArrayList<Task>();
     
 	public IMainController createMainController() {
 		return new MainControllerFactory();
@@ -25,22 +26,24 @@ public class MainControllerFactory implements IMainController {
 	public SimpleTableModel load(String fileName, String delimiter) {
 		
 		FileOpen test = new FileOpen(delimiter,fileName);
-		testtoprint=test.loadfile();
-		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(testtoprint));
+		loadedfile=test.loadfile();
+		//thelei kati poy na kanei kai taksinomish blepe discord general (mia klash se ena paketo sort )
+		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(loadedfile));
 	}
 
 	@Override
 	public SimpleTableModel getTasksByPrefix(String prefix) {
 		TasksByPrefix test2 = new TasksByPrefix(prefix);
-		temporary2=test2.gettasksbyprefix(testtoprint);
-		return new SimpleTableModel(name,prjName,pColumnNames,test2.toString(temporary2));
+		temporary1=test2.getTasksByPrefix(loadedfile);
+		return new SimpleTableModel(name,prjName,pColumnNames,test2.toString(temporary1));
 	}
 
 	
 	@Override
 	public SimpleTableModel getTaskById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		TaskById test3 = new TaskById(id);
+		temporary2=test3.getTasksById(loadedfile);
+		return new SimpleTableModel(name,prjName,pColumnNames,test3.toString(temporary2));
 	}
 
 	@Override

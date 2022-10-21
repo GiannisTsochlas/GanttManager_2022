@@ -27,7 +27,7 @@ public class TasksByPrefix {
     }
 	
 	//Comments on that loop is to help to understand the code in case wi want to fix it  
-	public ArrayList<Task> gettasksbyprefix(ArrayList<Task> arraylistwithtasks){
+	public ArrayList<Task> getTasksByPrefix(ArrayList<Task> arraylistwithtasks){
 		
 		ArrayList<Task> returnarraylist = new ArrayList<Task>();
 
@@ -60,7 +60,7 @@ public class TasksByPrefix {
 		return returnarraylist;
 	}
 
-	
+	//"Convert" indexes TASKS of an ArrayList to STRING 
 	public ArrayList<String[]> 	toString(ArrayList<Task> arl){
 			
 			ArrayList<String[]> indexes = new ArrayList<String[]>();

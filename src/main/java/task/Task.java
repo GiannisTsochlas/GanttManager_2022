@@ -1,5 +1,7 @@
 package task;
 
+import java.util.ArrayList;
+
 public class Task {
 	private int taskId;
 	private String name;
@@ -34,14 +36,6 @@ public class Task {
 		return name;
 	}
 	
-	//gia thn gettasksbyprefix
-	public String getFirstWord() {
-
-        int i = name.indexOf(' ');
-        String firstword = name.substring(0, i);
-        
-		return firstword;
-	}
 	
 	public int getMamaId() {
 		return mamaId;

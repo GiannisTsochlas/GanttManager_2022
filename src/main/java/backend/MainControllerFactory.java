@@ -8,6 +8,7 @@ import sort.Sort;
 import task.Task;
 import tasksbyid.TaskById;
 import tasksbyprefix.TasksByPrefix;
+import topleveltasks.TopLevelTasks;
 
 public class MainControllerFactory implements IMainController {
 	
@@ -17,7 +18,7 @@ public class MainControllerFactory implements IMainController {
 
     
     ArrayList<Task> loadedfile,sortedfile = new ArrayList<Task>();
-    ArrayList<Task> temporary1,temporary2 = new ArrayList<Task>();
+    ArrayList<Task> temporary1,temporary2,temporary3 = new ArrayList<Task>();
     
 	public IMainController createMainController() {
 		return new MainControllerFactory();
@@ -53,8 +54,9 @@ public class MainControllerFactory implements IMainController {
 
 	@Override
 	public SimpleTableModel getTopLevelTasks() {
-		// TODO Auto-generated method stub
-		return null;
+		TopLevelTasks test4 =new TopLevelTasks();
+		temporary3=test4.getTopLevelTasks(sortedfile);
+		return new SimpleTableModel(name,prjName,pColumnNames,test4.toString(temporary3));
 	}
 
 	@Override

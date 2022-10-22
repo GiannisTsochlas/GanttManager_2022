@@ -1,8 +1,2 @@
-/app/
-/TasksByPrefix/
-/tasksbyprefix/
+/topleveltasks/
 /backend/
-/task/
-/tasksbyid/
-/sort/
-/fileopen/

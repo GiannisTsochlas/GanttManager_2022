@@ -30,7 +30,7 @@ public class MainControllerFactory implements IMainController {
 		Sort test11 = new Sort();
 		
 		loadedfile=test.loadfile();
-		sortedfile=test11.setTopLevelInfos(loadedfile);
+		sortedfile=test11.FinalSort(loadedfile);
 		//thelei kati poy na kanei kai taksinomish blepe discord general (mia klash se ena paketo sort )
 		
 		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(sortedfile));
@@ -39,7 +39,7 @@ public class MainControllerFactory implements IMainController {
 	@Override
 	public SimpleTableModel getTasksByPrefix(String prefix) {
 		TasksByPrefix test2 = new TasksByPrefix(prefix);
-		temporary1=test2.getTasksByPrefix(loadedfile);
+		temporary1=test2.getTasksByPrefix(sortedfile);
 		return new SimpleTableModel(name,prjName,pColumnNames,test2.toString(temporary1));
 	}
 
@@ -47,7 +47,7 @@ public class MainControllerFactory implements IMainController {
 	@Override
 	public SimpleTableModel getTaskById(int id) {
 		TaskById test3 = new TaskById(id);
-		temporary2=test3.getTasksById(loadedfile);
+		temporary2=test3.getTasksById(sortedfile);
 		return new SimpleTableModel(name,prjName,pColumnNames,test3.toString(temporary2));
 	}
 

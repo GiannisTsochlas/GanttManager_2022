@@ -1,6 +1,7 @@
 package sort;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import task.Task;
 
@@ -109,13 +110,34 @@ public class Sort {
 				
 				arraylistwithtasks.set(i, temporary);
 			}
-			
 		}
-
-		
 		return arraylistwithtasks;
 	}
 	
+	//diorthonei ta idia start koitaei to task id 
+	public ArrayList<Task> FinalSort(ArrayList<Task> arraylistwithtasks){
+		
+		
+		//synexizoyme apo tin setTopLevelInfos
+		arraylistwithtasks=setTopLevelInfos(arraylistwithtasks);
+
+		for (int i = 0; i < arraylistwithtasks.size(); i++) {
+			try {
+				if(arraylistwithtasks.get(i).getStart()==arraylistwithtasks.get(i+1).getStart()){
+					if(arraylistwithtasks.get(i).getTaskId()>arraylistwithtasks.get(i+1).getTaskId()){
+						Collections.swap(arraylistwithtasks, i,i+1);
+					}
+				}
+				}
+				catch(Exception e) {
+					
+				  //System.out.println("out of bounce ");
+				  break;
+				}
+			
+		}
+		return arraylistwithtasks;
+	}
 	
 	
 	

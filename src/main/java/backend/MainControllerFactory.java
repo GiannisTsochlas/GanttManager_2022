@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import dom2app.SimpleTableModel;
 import fileopen.FileOpen;
+import sort.Sort;
 import task.Task;
 import tasksbyid.TaskById;
 import tasksbyprefix.TasksByPrefix;
@@ -15,7 +16,7 @@ public class MainControllerFactory implements IMainController {
     private String[] pColumnNames ={"TaskId" , "TaskText", "MamaId","Start" , "End" , "Cost" };
 
     
-    ArrayList<Task> loadedfile = new ArrayList<Task>();
+    ArrayList<Task> loadedfile,sortedfile = new ArrayList<Task>();
     ArrayList<Task> temporary1,temporary2 = new ArrayList<Task>();
     
 	public IMainController createMainController() {
@@ -26,9 +27,13 @@ public class MainControllerFactory implements IMainController {
 	public SimpleTableModel load(String fileName, String delimiter) {
 		
 		FileOpen test = new FileOpen(delimiter,fileName);
+		Sort test11 = new Sort();
+		
 		loadedfile=test.loadfile();
+		sortedfile=test11.sortTopLevelsTasks(loadedfile);
 		//thelei kati poy na kanei kai taksinomish blepe discord general (mia klash se ena paketo sort )
-		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(loadedfile));
+		
+		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(sortedfile));
 	}
 
 	@Override

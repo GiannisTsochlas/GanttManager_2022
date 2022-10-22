@@ -30,7 +30,7 @@ public class MainControllerFactory implements IMainController {
 		Sort test11 = new Sort();
 		
 		loadedfile=test.loadfile();
-		sortedfile=test11.sortTopLevelsTasks(loadedfile);
+		sortedfile=test11.setTopLevelInfos(loadedfile);
 		//thelei kati poy na kanei kai taksinomish blepe discord general (mia klash se ena paketo sort )
 		
 		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(sortedfile));

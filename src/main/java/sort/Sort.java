@@ -86,16 +86,26 @@ public class Sort {
 				
 				topleveltaskid=arraylistwithtasks.get(i).getTaskId();
 				
-				int start=0 , end=0 ,cost=0;
+				//SOS PREPEI NA BALW TRY CATCK EDW GIATI AN DEN YPARXEI 301 THA BGALEI INDEX OUT OF BOUNCE
+				int start=arraylistwithtasks.get(i+1).getStart(); 
+				int end=arraylistwithtasks.get(i+1).getEnd();
+				int cost=0;
 				 
 				for (int j = 0; j < arraylistwithtasks.size(); j++) {
 					
 					if(arraylistwithtasks.get(j).getMamaId()==topleveltaskid) {
 						cost=cost+arraylistwithtasks.get(j).getCost();
+						
+						if(arraylistwithtasks.get(j).getStart()<=start){
+							start=arraylistwithtasks.get(j).getStart();
+						}
+						if(arraylistwithtasks.get(j).getEnd()>=end){
+							end=arraylistwithtasks.get(j).getEnd();
+						}
 					}
 				}
 				
-				Task temporary = new Task(arraylistwithtasks.get(i).getTaskId(),arraylistwithtasks.get(i).getName(),arraylistwithtasks.get(i).getMamaId(),0,0,cost);
+				Task temporary = new Task(arraylistwithtasks.get(i).getTaskId(),arraylistwithtasks.get(i).getName(),arraylistwithtasks.get(i).getMamaId(),start,end,cost);
 				
 				arraylistwithtasks.set(i, temporary);
 			}

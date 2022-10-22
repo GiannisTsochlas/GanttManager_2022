@@ -1,4 +1,4 @@
-package fileopen;
+package filemanagment;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

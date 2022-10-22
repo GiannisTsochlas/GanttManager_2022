@@ -1,4 +1,4 @@
-package tasksbyprefix;
+package searchmethods;
 
 import java.util.*;
 import task.Task;

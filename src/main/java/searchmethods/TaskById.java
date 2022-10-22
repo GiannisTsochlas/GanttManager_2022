@@ -1,4 +1,4 @@
-package tasksbyid;
+package searchmethods;
 
 import java.util.ArrayList;
 import task.Task;

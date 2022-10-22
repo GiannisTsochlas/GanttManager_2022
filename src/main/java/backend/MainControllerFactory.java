@@ -3,12 +3,12 @@ package backend;
 import java.util.ArrayList;
 
 import dom2app.SimpleTableModel;
-import fileopen.FileOpen;
-import sort.Sort;
+import filemanagment.FileOpen;
+import filemanagment.Sort;
+import searchmethods.TaskById;
+import searchmethods.TasksByPrefix;
+import searchmethods.TopLevelTasks;
 import task.Task;
-import tasksbyid.TaskById;
-import tasksbyprefix.TasksByPrefix;
-import topleveltasks.TopLevelTasks;
 
 public class MainControllerFactory implements IMainController {
 	

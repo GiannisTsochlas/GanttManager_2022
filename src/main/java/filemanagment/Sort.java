@@ -2,6 +2,7 @@ package filemanagment;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import task.Task;
 
@@ -25,16 +26,55 @@ public class Sort {
 			for (int i = 0; i < maxtime+1; i++) {//diatrexei ton xrono
 				
 				for(int j=0;j<arraylistwithtasks.size(); j++) {//diatrexei ta tasks
-					if((i==(arraylistwithtasks.get(j)).getStart()))
-					{
+					if((i==(arraylistwithtasks.get(j)).getStart())){
 						returnarraylist.add(arraylistwithtasks.get(j));
-					
 					}
 				}
 		    }
-			
 			return returnarraylist;
 		}
+		
+		
+	//1.5	sort on top top level tasks
+	public ArrayList<Task> getOnTopTopLevelTasks(ArrayList<Task> arraylistwithtasks){
+		
+		arraylistwithtasks=sortTasksByStart(arraylistwithtasks);
+		
+		ArrayList<Task> temporarylist1 =new ArrayList<Task>();
+		ArrayList<Task> temporarylist2 =new ArrayList<Task>();
+		ArrayList<Task> appendlist =new ArrayList<Task>();
+		
+		for (int i = 0; i < arraylistwithtasks.size(); i++) {
+			if(arraylistwithtasks.get(i).getMamaId()==0) {
+				temporarylist1.add(arraylistwithtasks.get(i));
+			}	
+		}
+		Collections.reverse(temporarylist1);
+		for (int i1 = 0; i1 < temporarylist1.size(); i1++) {
+			try {
+			if(temporarylist1.get(i1).getTaskId()+100==temporarylist1.get(i1+1).getTaskId()) {
+				Collections.swap(temporarylist1, i1,i1+1);
+			}
+			}
+			catch(Exception e) {
+				break;
+			}
+		}
+		Collections.reverse(temporarylist1);
+		
+		for (int i1 = 0; i1 < arraylistwithtasks.size(); i1++) {
+			if(arraylistwithtasks.get(i1).getMamaId()!=0) {
+				temporarylist2.add(arraylistwithtasks.get(i1));
+			}	
+		}
+		
+		appendlist.addAll(temporarylist1);
+		appendlist.addAll(temporarylist2);
+		
+
+		
+		return appendlist;	
+	}
 	
 	//2
 	public ArrayList<Task> sortTopLevelsTasks(ArrayList<Task> arraylistwithtasks){
@@ -42,15 +82,11 @@ public class Sort {
 		ArrayList<Task> returnarraylist = new ArrayList<Task>();
 		int currentid = 0,topleveltaskid=0;
 		
-		//xriazete gia tin sortTasksByStart
-		for (int i = 0; i < arraylistwithtasks.size(); i++) {
-			
-			if(maxtime<=(arraylistwithtasks.get(i)).getStart())
-				maxtime=arraylistwithtasks.get(i).getStart();
-			}
+		//sinexizei apo tin getOnTopTopLevelTasks
 		
-		//sinexizei apo tin sortTasksByStart
-		arraylistwithtasks=sortTasksByStart(arraylistwithtasks);
+		arraylistwithtasks=getOnTopTopLevelTasks(arraylistwithtasks);
+		
+		
 		
 		for (int i = 0; i < arraylistwithtasks.size(); i++) {
 			
@@ -77,17 +113,17 @@ public class Sort {
 		
 		int topleveltaskid=0;
 		
-		//sinexizei apo tin sortTasksByStart
+		//sinexizei apo tin sortTopLevelsTasks
 		arraylistwithtasks=sortTopLevelsTasks(arraylistwithtasks);
 
 		for (int i = 0; i < arraylistwithtasks.size(); i++) {
 			
-
-			if(arraylistwithtasks.get(i).getMamaId()==0) {//bazei ta toplevel tasks
+			try {
+			if(arraylistwithtasks.get(i).getMamaId()==0&&arraylistwithtasks.get(i+1).getMamaId()!=0) {//bazei ta toplevel tasks
 				
 				topleveltaskid=arraylistwithtasks.get(i).getTaskId();
 				
-				//SOS PREPEI NA BALW TRY CATCK EDW GIATI AN DEN YPARXEI 301 THA BGALEI INDEX OUT OF BOUNCE
+				
 				try {
 					int start=arraylistwithtasks.get(i+1).getStart();
 					
@@ -107,14 +143,19 @@ public class Sort {
 							}
 						}
 					}
+						
 					Task temporary = new Task(arraylistwithtasks.get(i).getTaskId(),arraylistwithtasks.get(i).getName(),arraylistwithtasks.get(i).getMamaId(),start,end,cost);
 					
 					arraylistwithtasks.set(i, temporary);
 					}
 					catch(Exception e) {
-					  System.out.println("mphka stin catch");
 					  break;
 					}	
+			}
+			else continue;
+			}
+			catch(Exception e) {
+				
 			}
 		}
 		return arraylistwithtasks;
@@ -136,7 +177,6 @@ public class Sort {
 				}
 				}
 				catch(Exception e) {
-					
 				  //System.out.println("out of bounce ");
 				  break;
 				}

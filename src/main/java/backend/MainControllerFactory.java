@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dom2app.SimpleTableModel;
 import filemanagment.FileOpen;
 import filemanagment.Sort;
+import reports.TextReport;
 import searchmethods.TaskById;
 import searchmethods.TasksByPrefix;
 import searchmethods.TopLevelTasks;
@@ -19,6 +20,7 @@ public class MainControllerFactory implements IMainController {
     
     ArrayList<Task> loadedfile,sortedfile = new ArrayList<Task>();
     ArrayList<Task> temporary1,temporary2,temporary3 = new ArrayList<Task>();
+   
     
 	public IMainController createMainController() {
 		return new MainControllerFactory();
@@ -61,8 +63,8 @@ public class MainControllerFactory implements IMainController {
 
 	@Override
 	public int createReport(String path, ReportType type) {
-		// TODO Auto-generated method stub
-		return 0;
+		TextReport test5 =new TextReport(path,type);
+		return test5.createReportTxt(path, type);
 	}
 
 }

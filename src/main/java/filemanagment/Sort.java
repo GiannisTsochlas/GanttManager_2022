@@ -88,27 +88,33 @@ public class Sort {
 				topleveltaskid=arraylistwithtasks.get(i).getTaskId();
 				
 				//SOS PREPEI NA BALW TRY CATCK EDW GIATI AN DEN YPARXEI 301 THA BGALEI INDEX OUT OF BOUNCE
-				int start=arraylistwithtasks.get(i+1).getStart(); 
-				int end=arraylistwithtasks.get(i+1).getEnd();
-				int cost=0;
-				 
-				for (int j = 0; j < arraylistwithtasks.size(); j++) {
+				try {
+					int start=arraylistwithtasks.get(i+1).getStart();
 					
-					if(arraylistwithtasks.get(j).getMamaId()==topleveltaskid) {
-						cost=cost+arraylistwithtasks.get(j).getCost();
+					int end=arraylistwithtasks.get(i+1).getEnd();
+					int cost=0;
+					 
+					for (int j = 0; j < arraylistwithtasks.size(); j++) {
 						
-						if(arraylistwithtasks.get(j).getStart()<=start){
-							start=arraylistwithtasks.get(j).getStart();
-						}
-						if(arraylistwithtasks.get(j).getEnd()>=end){
-							end=arraylistwithtasks.get(j).getEnd();
+						if(arraylistwithtasks.get(j).getMamaId()==topleveltaskid) {
+							cost=cost+arraylistwithtasks.get(j).getCost();
+							
+							if(arraylistwithtasks.get(j).getStart()<=start){
+								start=arraylistwithtasks.get(j).getStart();
+							}
+							if(arraylistwithtasks.get(j).getEnd()>=end){
+								end=arraylistwithtasks.get(j).getEnd();
+							}
 						}
 					}
-				}
-				
-				Task temporary = new Task(arraylistwithtasks.get(i).getTaskId(),arraylistwithtasks.get(i).getName(),arraylistwithtasks.get(i).getMamaId(),start,end,cost);
-				
-				arraylistwithtasks.set(i, temporary);
+					Task temporary = new Task(arraylistwithtasks.get(i).getTaskId(),arraylistwithtasks.get(i).getName(),arraylistwithtasks.get(i).getMamaId(),start,end,cost);
+					
+					arraylistwithtasks.set(i, temporary);
+					}
+					catch(Exception e) {
+					  System.out.println("mphka stin catch");
+					  break;
+					}	
 			}
 		}
 		return arraylistwithtasks;

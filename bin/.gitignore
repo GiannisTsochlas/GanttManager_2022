@@ -1,8 +1,2 @@
-/topleveltasks/
-/backend/
-/searchmethods/
-/sort/
-/tasksbyid/
-/tasksbyprefix/
+/app/
 /filemanagment/
-/fileopen/

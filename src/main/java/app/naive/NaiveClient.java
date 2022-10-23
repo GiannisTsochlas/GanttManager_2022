@@ -7,7 +7,7 @@ public class NaiveClient {
 
 	public static void main(String args[]) {
 		AppController appController = new AppController();
-		SimpleTableModel m = appController.load("./src/main/resources/input/EggsScrambled.tsv", "\t");
+		SimpleTableModel m = appController.load("./src/main/resources/input/Shop.tsv", "\t");
 		
 		System.out.println();System.out.println();
 		System.out.println("----------");

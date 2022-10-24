@@ -57,8 +57,14 @@ public class Task {
 		
 	}
 	
-	public String[] tablestr() {
+	public String[] infosInStringArray() {
 		String[] tsk = {toString(taskId),name,toString(mamaId),toString(start),toString(end),toString(cost)};
 		return tsk;
 	}
+	
+	public String infosInString() {
+		String str = toString(taskId)+"	 	"+name+"	 "+toString(mamaId)+"	   "+toString(start)+" 	"+toString(end)+" 	"+toString(cost);
+		return str;
+	}
+	
 }

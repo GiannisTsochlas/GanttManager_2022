@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import dom2app.SimpleTableModel;
 import filemanagment.FileOpen;
 import filemanagment.Sort;
-import reports.TextReport;
+import reports.FilterReport;
 import searchmethods.TaskById;
 import searchmethods.TasksByPrefix;
 import searchmethods.TopLevelTasks;
@@ -63,8 +63,8 @@ public class MainControllerFactory implements IMainController {
 
 	@Override
 	public int createReport(String path, ReportType type) {
-		TextReport test5 =new TextReport(path,type);
-		return test5.createReportTxt(path, type);
+		FilterReport test5 =new FilterReport(path,type);
+		return test5.chooseReport(path, type,sortedfile);
 	}
 
 }

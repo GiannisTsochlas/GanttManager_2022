@@ -7,7 +7,10 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+
 import backend.ReportType;
+import task.Task;
 
 
 public class TextReport {
@@ -20,43 +23,49 @@ public class TextReport {
 		this.type = type;
 	}
 	
-	 public static int countLineJava(String fileName) {
+	 public static int countLine(String fileName) {
 
 	      Path path = Paths.get(fileName);
 
 	      int lines = 0;
 	      try {
 
-	          // much slower, this task better with sequence access
-	          //lines = Files.lines(path).parallel().count();
-
 	          lines = (int) Files.lines(path).count();
 
 	      } catch (IOException e) {
 	          e.printStackTrace();
 	      }
-
 	      return lines;
-
 	  }
 
 
-	public int createReportTxt(String path, ReportType type) {
+	public int createReportTxt(String path, ReportType type,ArrayList<Task> arraylistwithtasks) {
 		
-		FileOutputStream outputStream = null;
+		if(type==ReportType.TEXT) {
 		
-		try{
-		outputStream = new FileOutputStream(path);
+			FileOutputStream outputStream = null;
+			
+			try{
+			outputStream = new FileOutputStream(path);
+			}
+			catch (FileNotFoundException e){
+			System.out.println("Error opening the file ");
+			return -1;
+			}
+	
+			PrintWriter outputWriter = new PrintWriter(outputStream);
+			
+			outputWriter.println("mpikes stin txtreport ");
+			outputWriter.println("TaskId	 TaskText	 MamaId	   Start 	End 	Cost");
+			for(int i=0;i<arraylistwithtasks.size();i++) {
+				outputWriter.println(arraylistwithtasks.get(i).infosInString());
+			}
+			
+			outputWriter.close( );
+		return countLine(path);
 		}
-		catch (FileNotFoundException e){
-		System.out.println("Error opening the file stuff.txt.");
-		return -1;
-		}
-		
-		PrintWriter outputWriter = new PrintWriter(outputStream);
-		
-		outputWriter.println("jumped over the lazy dog.");
-		outputWriter.close( );
-		return countLineJava(path);
+		return 0;
 	}
+	
+	
 }

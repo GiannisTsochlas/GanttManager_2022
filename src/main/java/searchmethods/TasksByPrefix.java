@@ -65,7 +65,7 @@ public class TasksByPrefix {
 			
 			ArrayList<String[]> indexes = new ArrayList<String[]>();
 			for(int i=0; i<arl.size(); i++) {
-				indexes.add(arl.get(i).tablestr());
+				indexes.add(arl.get(i).infosInStringArray());
 			}
 			return indexes;
 	}			

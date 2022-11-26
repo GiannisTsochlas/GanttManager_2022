@@ -14,13 +14,13 @@ import task.Task;
 
 
 public class TextReport {
-	String path;
-	ReportType type;
+	private String path;
+	private ReportType type;
 	
 	
 	public TextReport(String path, ReportType type) {
-		this.path = path;
-		this.type = type;
+		this.setPath(path);
+		this.setType(type);
 	}
 	
 	 public static int countLine(String fileName) {
@@ -55,8 +55,8 @@ public class TextReport {
 	
 			PrintWriter outputWriter = new PrintWriter(outputStream);
 			
-			outputWriter.println("mpikes stin txtreport ");
-			outputWriter.println("TaskId	 TaskText	 MamaId	   Start 	End 	Cost");
+			//outputWriter.println("mpikes stin txtreport ");
+			outputWriter.println("TaskId	 	TaskText	 MamaId	   Start 	End 	Cost");
 			for(int i=0;i<arraylistwithtasks.size();i++) {
 				outputWriter.println(arraylistwithtasks.get(i).infosInString());
 			}
@@ -65,6 +65,23 @@ public class TextReport {
 		return countLine(path);
 		}
 		return 0;
+	}
+	//Setters and Getters
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public ReportType getType() {
+		return type;
+	}
+
+	public void setType(ReportType type) {
+		this.type = type;
 	}
 	
 	

@@ -2,13 +2,12 @@ package filemanagment;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import task.Task;
 
-public class Sort {
+public class Classification {
 	
-	int maxtime=0;
+	private int maxtime=0;
 	
 	//1
 		public ArrayList<Task> sortTasksByStart(ArrayList<Task> arraylistwithtasks){

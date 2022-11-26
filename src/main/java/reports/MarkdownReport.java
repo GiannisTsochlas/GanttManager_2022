@@ -15,12 +15,12 @@ import task.Task;
 
 
 public class MarkdownReport {
-	String path;
-	ReportType type;
+	private String path;
+	private ReportType type;
 	
 	public MarkdownReport(String path, ReportType type) {
-		this.path = path;
-		this.type = type;
+		this.setPath(path);
+		this.setType(type);
 	}
 	
 	public static int countLine(String fileName) {
@@ -52,9 +52,9 @@ public class MarkdownReport {
 		
 				PrintWriter outputWriter = new PrintWriter(outputStream);
 				
-				outputWriter.println("mpikes stin mdreport");
+				//outputWriter.println("mpikes stin mdreport");
 				
-				outputWriter.println("*"+"TaskId	  TaskText	  MamaId	   Start 	End 	Cost"+"*");//na rwtisoyme an exei thema poy fainonte ta asterakia sto telos 
+				outputWriter.println("*"+"TaskId	  TaskText	  MamaId	   Start 	End 	Cost"+"*");
 				
 				for(int i=0;i<arraylistwithtasks.size();i++) {
 					if(arraylistwithtasks.get(i).getMamaId()==0) {
@@ -65,4 +65,21 @@ public class MarkdownReport {
 				outputWriter.close( );
 			return countLine(path);
 			}
+	//Setters and Getters
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public ReportType getType() {
+		return type;
+	}
+
+	public void setType(ReportType type) {
+		this.type = type;
+	}
 }

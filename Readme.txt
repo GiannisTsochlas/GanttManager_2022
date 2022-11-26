@@ -1,7 +1,14 @@
 IOANNIS TSOCHLAS AM 4993
 IOANNIS GIAΝNAKOS ΑΜ 4970
 
- TO DO 
- NA TSEKAROYME CLASSEIS KAI METHODOYS OTI EXOYN KOMPLE(SWSTA) ONOMATA
- NA BGALOYME TA COMMENTS
- NA KANOYME TA PAIDIA PRIVATE 
+Dieykriniseis
+Sta report files otan ta apothikeyoyme prepei na baloyme xeirokinita to extension (.html,.txt,.md)
+
+  
+ Αναφορές. Θα συμπληρώσετε και την τελική αναφορά, αλλά και τα ενδιάμεσα στάδιά της, 
+ ΥΠΟΧΡΕΩΤΙΚΑ στο template που έχω δώσει. Σε κάθε στάδιο του project, προοδευτικά θα 
+ προστίθεται και μία νέα ενότητα: στην αρχή θα έχετε μόνο την ανάλυση απαιτήσεων, μετά 
+ τη σχεδίαση και τους ελέγχους, και στο τέλος θα ενημερώσετε/επεκτείνετε τα προαναφερθέντα 
+ για να δώσετε την τελική αναφορά σας. Η τελική αναφορά, κατατίθεται μαζί με όλα τα επί 
+ μέρους παραδοτέα, ενημερωμένη σε σχέση με τον κώδικα που παραδίδετε (δλδ., ενημερώνετε τα use 
+ cases/UML diagrams/tests/... στην τελική τους μορφή).

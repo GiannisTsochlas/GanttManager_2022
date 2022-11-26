@@ -6,13 +6,13 @@ import backend.ReportType;
 import task.Task;
 
 public class FilterReport {
-	String path;
-	ReportType type;
-	ArrayList<Task> arraylistwithtasks;
+	private String path;
+	private ReportType type;
+	private ArrayList<Task> arraylistwithtasks;
 	
 	public FilterReport(String path, ReportType type) {
-		this.path = path;
-		this.type = type;
+		this.setPath(path);
+		this.setType(type);
 	}
 	
 	public int chooseReport(String path, ReportType type,ArrayList<Task> arraylistwithtasks) {
@@ -35,5 +35,30 @@ public class FilterReport {
 	   
 		}
 		return -1;
+	}
+	//Setter and Getters
+
+	public ReportType getType() {
+		return type;
+	}
+
+	public void setType(ReportType type) {
+		this.type = type;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public ArrayList<Task> getArraylistwithtasks() {
+		return arraylistwithtasks;
+	}
+
+	public void setArraylistwithtasks(ArrayList<Task> arraylistwithtasks) {
+		this.arraylistwithtasks = arraylistwithtasks;
 	}
 }

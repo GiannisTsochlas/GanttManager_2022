@@ -26,7 +26,7 @@ public class TasksByPrefix {
         return chars;
     }
 	
-	//Comments on that loop is to help to understand the code in case wi want to fix it  
+	//Comments on that loop is to help to understand the code in case we want to fix it  
 	public ArrayList<Task> getTasksByPrefix(ArrayList<Task> arraylistwithtasks){
 		
 		ArrayList<Task> returnarraylist = new ArrayList<Task>();

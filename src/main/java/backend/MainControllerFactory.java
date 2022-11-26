@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import dom2app.SimpleTableModel;
 import filemanagment.FileOpen;
-import filemanagment.Sort;
+import filemanagment.Classification;
 import reports.FilterReport;
 import searchmethods.TaskById;
 import searchmethods.TasksByPrefix;
@@ -30,11 +30,11 @@ public class MainControllerFactory implements IMainController {
 	public SimpleTableModel load(String fileName, String delimiter) {
 		
 		FileOpen test = new FileOpen(delimiter,fileName);
-		Sort test11 = new Sort();
+		Classification test11 = new Classification();
 		
 		loadedfile=test.loadfile();
 		sortedfile=test11.FinalSort(loadedfile);
-		//thelei kati poy na kanei kai taksinomish blepe discord general (mia klash se ena paketo sort )
+		
 		
 		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(sortedfile));
 	}

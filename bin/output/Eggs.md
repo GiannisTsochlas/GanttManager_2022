@@ -1,4 +1,3 @@
-mpikes stin mdreport
 *TaskId	  TaskText	  MamaId	   Start 	End 	Cost*
 **100	 	Prepare Fry	 0	   1 	12 	60**
 101	 	Turn on burner (low)	 100	   1 	1 	10

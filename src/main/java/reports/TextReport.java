@@ -55,7 +55,6 @@ public class TextReport {
 	
 			PrintWriter outputWriter = new PrintWriter(outputStream);
 			
-			//outputWriter.println("mpikes stin txtreport ");
 			outputWriter.println("TaskId	 	TaskText	 MamaId	   Start 	End 	Cost");
 			for(int i=0;i<arraylistwithtasks.size();i++) {
 				outputWriter.println(arraylistwithtasks.get(i).infosInString());

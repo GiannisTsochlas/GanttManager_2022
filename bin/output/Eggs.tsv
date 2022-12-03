@@ -1,5 +1,4 @@
-mpikes stin txtreport 
-TaskId	 TaskText	 MamaId	   Start 	End 	Cost
+TaskId	 	TaskText	 MamaId	   Start 	End 	Cost
 100	 	Prepare Fry	 0	   1 	12 	60
 101	 	Turn on burner (low)	 100	   1 	1 	10
 102	 	Break eggs and pour into fry	 100	   2 	4 	10

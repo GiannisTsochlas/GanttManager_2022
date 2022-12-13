@@ -27,7 +27,7 @@ public class NaiveClient {
 		System.out.println(m.toString());
 	
 		appController.createReportText("./src/main/resources/output/Eggs.tsv");
-		appController.createReportMd("./src/main/resources/output/Eggs.md");//pos ginete diaforopihsh edw
+		appController.createReportMd("./src/main/resources/output/Eggs.md");
 		appController.createReportHtml("./src/main/resources/output/Eggs.html");
 		System.out.println("End of dummy client");
 	}

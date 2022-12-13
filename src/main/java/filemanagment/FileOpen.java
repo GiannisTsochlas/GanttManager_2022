@@ -11,10 +11,13 @@ public class FileOpen {
 	private String fileName;
 	
 	public FileOpen(String delimiter, String fileName) {
-		this.delimiter = delimiter;
-		this.fileName = fileName;
+			this.delimiter = delimiter;
+			this.fileName = fileName;
+			
 	}
 	public ArrayList<Task> loadfile() {
+	
+		
 		Scanner inputReader = null;
 		
 		try{

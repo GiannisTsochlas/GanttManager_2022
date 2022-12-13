@@ -13,8 +13,7 @@ import task.Task;
 
 public class MainControllerFactory implements IMainController {
 	
-	private String name = "";
-    private String prjName ="";
+	private String name ;
     private String[] pColumnNames ={"TaskId" , "TaskText", "MamaId","Start" , "End" , "Cost" };
 
     
@@ -31,19 +30,20 @@ public class MainControllerFactory implements IMainController {
 		
 		FileOpen test = new FileOpen(delimiter,fileName);
 		Classification test11 = new Classification();
-		
+		name =fileName;
 		loadedfile=test.loadfile();
 		sortedfile=test11.FinalSort(loadedfile);
 		
 		
-		return new SimpleTableModel(name,prjName,pColumnNames,test.toString(sortedfile));
+		return new SimpleTableModel("Sort",name,pColumnNames,test.toString(sortedfile));
+	
 	}
 
 	@Override
 	public SimpleTableModel getTasksByPrefix(String prefix) {
 		TasksByPrefix test2 = new TasksByPrefix(prefix);
 		temporary1=test2.getTasksByPrefix(sortedfile);
-		return new SimpleTableModel(name,prjName,pColumnNames,test2.toString(temporary1));
+		return new SimpleTableModel("Prefix search  '"+prefix+"'",name,pColumnNames,test2.toString(temporary1));
 	}
 
 	
@@ -51,14 +51,14 @@ public class MainControllerFactory implements IMainController {
 	public SimpleTableModel getTaskById(int id) {
 		TaskById test3 = new TaskById(id);
 		temporary2=test3.getTasksById(sortedfile);
-		return new SimpleTableModel(name,prjName,pColumnNames,test3.toString(temporary2));
+		return new SimpleTableModel("Id search '"+id+"'\t",name,pColumnNames,test3.toString(temporary2));
 	}
 
 	@Override
 	public SimpleTableModel getTopLevelTasks() {
 		TopLevelTasks test4 =new TopLevelTasks();
 		temporary3=test4.getTopLevelTasks(sortedfile);
-		return new SimpleTableModel(name,prjName,pColumnNames,test4.toString(temporary3));
+		return new SimpleTableModel("Top Level Tasks search ",name,pColumnNames,test4.toString(temporary3));
 	}
 
 	@Override

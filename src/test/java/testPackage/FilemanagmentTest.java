@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
 
 import backend.MainControllerFactory;
@@ -17,41 +17,38 @@ public class FilemanagmentTest {
 	private static FileOpen fileOpenToTest;
 	
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		//this runs once, before _all_ tests. Here we create a single object (to save time)
-		//and use it in all tests.
-	}
-
 	@Before
 	public void setUp() throws Exception {
 		fileOpenToTest = new FileOpen("\t","./src/main/resources/input/EggsScrambled.tsv");
 	}
 
-	/*@Test
+	@Test
+	//T1_V0_03
 	public void testfileOpenNull() {
 		assertNotNull("After the setup,the file open is not null",fileOpenToTest);
 	}
+	
 	@Test
+	//T1_V0_04
 	public void testfileOpenNoDelimiter() {
 		fileOpenToTest = new FileOpen(null,"./src/main/resources/input/EggsScrambled.tsv");
 		assertNull("test if the constructor prevents creation with null delimiter",fileOpenToTest);
+		//failure so we must fix it 
 	}
+	
 	@Test
-	public void testfileOpenNoFileName() {
-		fileOpenToTest = new FileOpen("\t",null);
-		assertNull("test if the constructor prevents creation with null filename",fileOpenToTest);
-	}*/
-	@Test
+	//T1_V0_01
 	public void testfileOpenLines() {
 		ArrayList<Task> loadedfile=fileOpenToTest.loadfile();
 		assertEquals("test if file open has sucesfully load the file (unsorted/unclassified) through total line number",14,loadedfile.size());
 	}
+	
 	@Test
+	//T1_V0_02
 	public void testClassificationChanges() {
 		MainControllerFactory testClassification=new MainControllerFactory();
 		SimpleTableModel arraytotest = testClassification.load("./src/main/resources/input/EggsScrambled.tsv","\t");
-		String compare="	for\t\n"+ 
+		String compare="Sort	for	./src/main/resources/input/EggsScrambled.tsv\n"+ 
 				"TaskId	TaskText	MamaId	Start	End	Cost\t\n"
 				+ "100	Prepare Fry	0	1	12	60\t\n"
 				+ "101	Turn on burner (low)	100	1	1	10\t\n"
@@ -67,10 +64,23 @@ public class FilemanagmentTest {
 				+ "301	Put bread in plate	300	13	13	10\t\n"
 				+ "302	Put eggs on bread	300	14	14	10\t\n"
 				+ "303	Wash fry	300	15	20	10\t\n";
-		assertEquals("HAPPY DAY test if file after Final Sort has succesfuly sorted ",compare,arraytotest.toString());
+		assertEquals("HAPPY DAY test if file after Final Sort has succesfuly sorted ",arraytotest.toString(),compare);
 
 	}
 	
+	//READ ME 
 	
+	//this test simulates a faulty path we comment it because it do System.exit(0); so the other test will not be exucuted 
+	//we have search a way to do it .we found System lamda library that have functions to test that thing BUT it writes 
+	//"For JUnit 4 there is an alternative to System Lambda. Its name is System Rules." and then for System Rules they write 
+	//Advice: System Rules needs at least JUnit 4.9. and we have 4.14 so we cannot test it in that way 
+
+//	@Test 
+//	//you will see in the console the problem 
+//	public void testfileOpenNoFileName() {
+//		MainControllerFactory testClassification=new MainControllerFactory();
+//		SimpleTableModel arraytotest = testClassification.load("","\t");
+//		
+//	}
 
 }
